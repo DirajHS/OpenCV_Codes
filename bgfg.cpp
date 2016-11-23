@@ -1,45 +1,24 @@
 // (Implemented from the OpenCV book sample)
 #include "opencv2/core/core.hpp"
-#include "opencv2/video/background_segm.hpp"
 #include "opencv2/imgproc/imgproc_c.h"
 #include "opencv2/highgui/highgui.hpp"
-#include "opencv2/legacy/legacy.hpp"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
 
 #define CHANNELS 3
-// ,
 
-///////////////////////////////////////////////////////////////////////////
-//
-// ,
-// ,,,
 typedef struct ce {
 	uchar   learnHigh[CHANNELS];    // High side threshold for learning
-	// ()
 	uchar   learnLow[CHANNELS];     // Low side threshold for learning
-	//
-	// x[i], learnLow[i]<=x[i]<=learnHigh[i],
 	uchar   max[CHANNELS];          // High side of box boundary
-	//
 	uchar   min[CHANNELS];          // Low side of box boundary
-	//
 	int     t_last_update;          // This is book keeping to allow us to kill stale entries
-	// ,,stale
 	int     stale;                  // max negative run (biggest period of inactivity)
-	// ,,
 } code_element;                     //
 
 typedef struct code_book {
 	code_element    **cb;
-	// ,,,
 	int             numEntries;
-	//
 	int             t;              // count every access
-	// ,
-} codeBook;                         //
+} codeBook;
 
 
 ///////////////////////////////////////////////////////////////////////////////////
