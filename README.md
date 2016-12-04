@@ -1,6 +1,7 @@
 # OpenCV_Codes
 
 [![Crates.io](https://img.shields.io/crates/l/rustc-serialize.svg?maxAge=2592000)]()
+[![https://github.com/DirajHS/OpenCV_Codes](https://travis-ci.org/DirajHS/OpenCV_Codes.svg?branch=master)]()
 
 ## Background foreground Image segmentation
 <p align="justify">
